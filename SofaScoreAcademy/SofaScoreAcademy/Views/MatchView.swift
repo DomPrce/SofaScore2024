@@ -6,236 +6,218 @@
 //
 
 import UIKit
+import SnapKit
 import SofaAcademic
 
-class MatchView: BaseView {
+final class MatchView: BaseView {
     
-    private let eventCellsEventCellView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    enum WinnerCode {
+        case home
+        case away
+    }
     
-    private let teamOneLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.body
-        return label
-    }()
-    
-    private let teamTwoLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.body
-        return label
-    }()
-    
-    private let teamOneScoreLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.body
-        label.textAlignment = .center
-        return label
-    }()
-    
-    private let teamTwoScoreLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.body
-        label.textAlignment = .center
-        return label
-    }()
-    
-    
-    private let teamOneImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "teamOne")
-        return imageView
-    }()
-        
-    
-    private let teamTwoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "teamTwo")
-        return imageView
-    }()
-    
-    private let time: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.micro
-        label.textColor = .lightGray
-        label.textAlignment = .center
-        return label
-    }()
-    
-    private let status: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.micro
-        label.textAlignment = .center
-        return label
-    }()
-    
-    let verticalDivider: UIView = {
-        let view = UIView()
-        view.backgroundColor = .lightGray
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    
+    private let matchCellView = UIView()
+    private let teamOneNameLabel = UILabel()
+    private let teamTwoNameLabel = UILabel()
+    private let teamOneScoreLabel = UILabel()
+    private let teamTwoScoreLabel = UILabel()
+    private let teamOneImageView = UIImageView()
+    private let teamTwoImageView = UIImageView()
+    private let matchTimeLabel = UILabel()
+    private let matchStatusLabel = UILabel()
+    private let matchCellverticalDivider = UIView()
+
     override func addViews() {
-        super.addViews()
-        addSubview(eventCellsEventCellView)
-        eventCellsEventCellView.addSubview(teamOneLabel)
-        eventCellsEventCellView.addSubview(teamTwoLabel)
-        eventCellsEventCellView.addSubview(teamOneScoreLabel)
-        eventCellsEventCellView.addSubview(teamTwoScoreLabel)
-        eventCellsEventCellView.addSubview(teamOneLabel)
-        eventCellsEventCellView.addSubview(teamTwoLabel)
-        eventCellsEventCellView.addSubview(teamOneImageView)
-        eventCellsEventCellView.addSubview(teamTwoImageView)
-        eventCellsEventCellView.addSubview(time)
-        eventCellsEventCellView.addSubview(status)
-        eventCellsEventCellView.addSubview(verticalDivider)
+        
+        addSubview(matchCellView)
+        matchCellView.addSubview(teamOneNameLabel)
+        matchCellView.addSubview(teamTwoNameLabel)
+        matchCellView.addSubview(teamOneScoreLabel)
+        matchCellView.addSubview(teamTwoScoreLabel)
+        matchCellView.addSubview(teamOneImageView)
+        matchCellView.addSubview(teamTwoImageView)
+        matchCellView.addSubview(matchTimeLabel)
+        matchCellView.addSubview(matchStatusLabel)
+        matchCellView.addSubview(matchCellverticalDivider)
+        
+    }
+    
+    override func styleViews() {
+                
+        matchCellView.backgroundColor = .white
+        
+        teamOneNameLabel.font = .body
+        teamTwoNameLabel.font = .body
+        teamOneScoreLabel.font = .body
+        teamOneScoreLabel.textAlignment = .center
+        teamTwoScoreLabel.font = .body
+        teamTwoScoreLabel.textAlignment = .center
+        
+        teamOneImageView.contentMode = .scaleAspectFit
+        teamOneImageView.image = UIImage(named: "teamOne")
+        teamTwoImageView.contentMode = .scaleAspectFit
+        teamTwoImageView.image = UIImage(named: "teamTwo")
+        
+        matchTimeLabel.font = .micro
+        matchTimeLabel.textColor = .onSurfaceOnSurfaceLv2
+        matchTimeLabel.textAlignment = .center
+        
+        matchStatusLabel.font = .micro
+        matchStatusLabel.textAlignment = .center
+        
+        matchCellverticalDivider.backgroundColor = .onSurfaceOnSurfaceLv2
+        
     }
     
     override func setupConstraints() {
-        super.setupConstraints()
+                
+        matchCellView.snp.makeConstraints {
+            
+            $0.top.equalToSuperview().offset(100)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(56.0)
+            
+        }
         
-        NSLayoutConstraint.activate([
-            eventCellsEventCellView.topAnchor.constraint(equalTo: topAnchor, constant: 100),
-            eventCellsEventCellView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            eventCellsEventCellView.trailingAnchor.constraint(equalTo: leadingAnchor, constant: 360),
-            eventCellsEventCellView.heightAnchor.constraint(equalToConstant: 56.0),
-        ])
+        teamOneNameLabel.snp.makeConstraints {
+            
+            $0.leading.equalTo(matchCellView.snp.leading).offset(104)
+            $0.top.equalTo(matchCellView.snp.top).offset(10)
+            $0.height.equalTo(16.0)
+            
+        }
         
-       
-        NSLayoutConstraint.activate([
-            teamOneLabel.leadingAnchor.constraint(equalTo: eventCellsEventCellView.leadingAnchor, constant: 104),
-            teamOneLabel.topAnchor.constraint(equalTo: eventCellsEventCellView.topAnchor, constant: 10),
-            teamOneLabel.heightAnchor.constraint(equalToConstant: 16.0),
-        ])
+        teamTwoNameLabel.snp.makeConstraints {
+            
+            $0.leading.equalTo(teamOneNameLabel)
+            $0.top.equalTo(teamOneNameLabel.snp.bottom).offset(4)
+            $0.height.equalTo(16.0)
+            
+        }
         
-        NSLayoutConstraint.activate([
-            teamTwoLabel.leadingAnchor.constraint(equalTo: teamOneLabel.leadingAnchor),
-            teamTwoLabel.topAnchor.constraint(equalTo: teamOneLabel.bottomAnchor, constant: 4),
-            teamTwoLabel.heightAnchor.constraint(equalToConstant: 16.0),
-        ])
+        teamOneScoreLabel.snp.makeConstraints {
+            
+            $0.leading.equalTo(matchCellView.snp.leading).offset(320)
+            $0.top.equalTo(matchCellView.snp.top).offset(10)
+            $0.width.equalTo(32.0)
+            $0.height.equalTo(16.0)
+            
+        }
         
-        NSLayoutConstraint.activate([
-            teamOneScoreLabel.leadingAnchor.constraint(equalTo: eventCellsEventCellView.leadingAnchor, constant: 320),
-            teamOneScoreLabel.topAnchor.constraint(equalTo: eventCellsEventCellView.topAnchor, constant: 10),
-            teamOneScoreLabel.widthAnchor.constraint(equalToConstant: 32.0),
-            teamOneScoreLabel.heightAnchor.constraint(equalToConstant: 16.0),
-        ])
+        teamTwoScoreLabel.snp.makeConstraints {
+            
+            $0.leading.equalTo(teamOneScoreLabel)
+            $0.top.equalTo(teamOneScoreLabel.snp.bottom).offset(4)
+            $0.width.equalTo(32.0)
+            $0.height.equalTo(16.0)
+            
+        }
         
-        NSLayoutConstraint.activate([
-            teamTwoScoreLabel.leadingAnchor.constraint(equalTo: eventCellsEventCellView.leadingAnchor, constant: 320),
-            teamTwoScoreLabel.topAnchor.constraint(equalTo: teamOneScoreLabel.bottomAnchor, constant: 4),
-            teamTwoScoreLabel.widthAnchor.constraint(equalToConstant: 32.0),
-            teamTwoScoreLabel.heightAnchor.constraint(equalToConstant: 16.0),
-        ])
+        teamOneImageView.snp.makeConstraints {
+            
+            $0.leading.equalTo(matchCellView.snp.leading).offset(80)
+            $0.top.equalTo(matchCellView.snp.top).offset(10)
+            $0.width.height.equalTo(16.0)
+            
+        }
         
-        NSLayoutConstraint.activate([
-            teamOneImageView.leadingAnchor.constraint(equalTo: eventCellsEventCellView.leadingAnchor, constant: 80),
-            teamOneImageView.topAnchor.constraint(equalTo: eventCellsEventCellView.topAnchor, constant: 10),
-            teamOneImageView.widthAnchor.constraint(equalToConstant: 16.0),
-            teamOneImageView.heightAnchor.constraint(equalToConstant: 16.0),
-        ])
+        teamTwoImageView.snp.makeConstraints {
+            
+            $0.leading.equalTo(teamOneImageView)
+            $0.top.equalTo(teamOneScoreLabel.snp.bottom).offset(4)
+            $0.width.height.equalTo(16.0)
+            
+        }
         
-        NSLayoutConstraint.activate([
-            teamTwoImageView.leadingAnchor.constraint(equalTo: eventCellsEventCellView.leadingAnchor, constant: 80),
-            teamTwoImageView.topAnchor.constraint(equalTo: teamOneScoreLabel.bottomAnchor, constant: 4),
-            teamTwoImageView.widthAnchor.constraint(equalToConstant: 16.0),
-            teamTwoImageView.heightAnchor.constraint(equalToConstant: 16.0),
-        ])
+        matchTimeLabel.snp.makeConstraints {
+            
+            $0.leading.equalTo(matchCellView.snp.leading).offset(4)
+            $0.top.equalTo(matchCellView.snp.top).offset(10)
+            $0.width.equalTo(56.0)
+            $0.height.equalTo(16.0)
+            
+        }
         
-        NSLayoutConstraint.activate([
-            time.leadingAnchor.constraint(equalTo: eventCellsEventCellView.leadingAnchor, constant: 4),
-            time.topAnchor.constraint(equalTo: eventCellsEventCellView.topAnchor, constant: 10),
-            time.widthAnchor.constraint(equalToConstant: 56.0),
-            time.heightAnchor.constraint(equalToConstant: 16.0),
-        ])
+        matchStatusLabel.snp.makeConstraints {
+            
+            $0.leading.equalTo(matchTimeLabel)
+            $0.top.equalTo(teamOneScoreLabel.snp.bottom).offset(4)
+            $0.width.equalTo(56.0)
+            $0.height.equalTo(16.0)
+            
+        }
         
-        NSLayoutConstraint.activate([
-            status.leadingAnchor.constraint(equalTo: eventCellsEventCellView.leadingAnchor, constant: 4),
-            status.topAnchor.constraint(equalTo: teamOneScoreLabel.bottomAnchor, constant: 4),
-            status.widthAnchor.constraint(equalToConstant: 56.0),
-            status.heightAnchor.constraint(equalToConstant: 16.0),
-        ])
-        
-        NSLayoutConstraint.activate([
-            verticalDivider.leadingAnchor.constraint(equalTo: eventCellsEventCellView.leadingAnchor, constant: 63),
-            verticalDivider.topAnchor.constraint(equalTo: eventCellsEventCellView.topAnchor, constant: 8),
-            verticalDivider.widthAnchor.constraint(equalToConstant: 1.0),
-            verticalDivider.heightAnchor.constraint(equalToConstant: 40.0),
-        ])
+        matchCellverticalDivider.snp.makeConstraints {
+            
+            $0.leading.equalTo(matchCellView.snp.leading).offset(63)
+            $0.top.equalTo(matchCellView.snp.top).offset(8)
+            $0.width.equalTo(1.0)
+            $0.height.equalTo(40.0)
+            
+        }
     }
-
+    
     func configure(with event: Event) {
-        teamOneLabel.text = event.teamOneName
-        teamTwoLabel.text = event.teamTwoName
-        time.text = event.formattedStartTime
+        teamOneNameLabel.text = event.teamOneName
+        teamTwoNameLabel.text = event.teamTwoName
+        matchTimeLabel.text = event.formattedStartTime
         
         let teamOneScore = event.teamOneScore ?? 0
         let teamTwoScore = event.teamTwoScore ?? 0
-            
-        teamOneScoreLabel.text = "\(teamOneScore)"
-        teamTwoScoreLabel.text = "\(teamTwoScore)"
         
-        
-        switch event.matchStatus {
-            
-            case .inProgress:
-            
-            teamOneLabel.textColor = UIColor.onSurfaceOnSurfaceLv1
-            teamTwoLabel.textColor = UIColor.onSurfaceOnSurfaceLv1
-            status.text = "\(event.matchTime ?? 0)'"
-            status.textColor = UIColor.specificLive
-            teamOneScoreLabel.textColor = UIColor.specificLive
-            teamTwoScoreLabel.textColor = UIColor.specificLive
-            
-            case .isFinished:
-            status.text = "FT"
-            status.textColor = UIColor.onSurfaceOnSurfaceLv2
+        teamOneScoreLabel.text = teamOneScore.description
+        teamTwoScoreLabel.text = teamTwoScore.description
+        updateStatus(for: event.matchStatus, with: event.matchTime, teamOneScore: teamOneScore, teamTwoScore: teamTwoScore)
+    }
 
-            if teamOneScore > teamTwoScore {
-                teamTwoLabel.textColor = UIColor.onSurfaceOnSurfaceLv2
-                teamOneLabel.textColor = UIColor.onSurfaceOnSurfaceLv1
-                teamTwoScoreLabel.textColor = UIColor.onSurfaceOnSurfaceLv2
-                teamOneScoreLabel.textColor = UIColor.onSurfaceOnSurfaceLv1
-            } else if teamOneScore < teamTwoScore {
-                teamOneLabel.textColor = UIColor.onSurfaceOnSurfaceLv2
-                teamTwoLabel.textColor = UIColor.onSurfaceOnSurfaceLv1
-                teamOneScoreLabel.textColor = UIColor.onSurfaceOnSurfaceLv2
-                teamTwoScoreLabel.textColor = UIColor.onSurfaceOnSurfaceLv1
-            } else {
-                teamOneLabel.textColor = UIColor.onSurfaceOnSurfaceLv1
-                teamTwoLabel.textColor = UIColor.onSurfaceOnSurfaceLv1
-                teamOneScoreLabel.textColor = UIColor.onSurfaceOnSurfaceLv1
-                teamTwoScoreLabel.textColor = UIColor.onSurfaceOnSurfaceLv1
+    private func updateStatus(for status: MatchStatus, with time: Int?, teamOneScore: Int, teamTwoScore: Int) {
+        let winnerCode: WinnerCode? = {
+            if status == .isFinished {
+                if teamOneScore > teamTwoScore {
+                    return .home
+                } else if teamOneScore < teamTwoScore {
+                    return .away
+                }
             }
-            
-            case .notStarted:
-            
-            status.text = "-"
-            status.textColor = UIColor.onSurfaceOnSurfaceLv2
-            teamOneLabel.textColor = UIColor.onSurfaceOnSurfaceLv1
-            teamTwoLabel.textColor = UIColor.onSurfaceOnSurfaceLv1
-            teamOneScoreLabel.text = ""
-            teamTwoScoreLabel.text = ""
-        }
-            
+            return nil
+        }()
+
+        let colors = MatchView.getTeamNameColors(for: status, winnerCode: winnerCode)
+        
+        matchStatusLabel.text = status == .notStarted ? "-" : (status == .inProgress ? "\(time ?? 0)'" : "FT")
+        matchStatusLabel.textColor = status == .inProgress ? .specificLive : .onSurfaceOnSurfaceLv2
+        
+        let scoreColor: UIColor = status == .inProgress ? .specificLive : colors.left
+        teamOneNameLabel.textColor = colors.left
+        teamTwoNameLabel.textColor = colors.right
+        teamOneScoreLabel.textColor = scoreColor
+        teamTwoScoreLabel.textColor = scoreColor
     }
 
 
+    
+    static func getTeamNameColors(for status: MatchStatus, winnerCode: WinnerCode?) -> ValuePair<UIColor> {
+        var leftColor: UIColor = .onSurfaceOnSurfaceLv1
+        var rightColor: UIColor = .onSurfaceOnSurfaceLv1
+        if status == .isFinished {
+            switch winnerCode {
+            case .home:
+                leftColor = .onSurfaceOnSurfaceLv1
+                rightColor = .onSurfaceOnSurfaceLv2
+            case .away:
+                leftColor = .onSurfaceOnSurfaceLv2
+                rightColor = .onSurfaceOnSurfaceLv1
+            case .none:
+                break
+            }
+        }
+        return ValuePair(left: leftColor, right: rightColor)
+    }
 
 }
+
+
+
+
+    
 

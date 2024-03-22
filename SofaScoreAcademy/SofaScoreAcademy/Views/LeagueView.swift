@@ -6,105 +6,94 @@
 //
 
 import UIKit
+import SnapKit
 import SofaAcademic
 
-class LeagueView: BaseView {
+final class LeagueView: BaseView {
     
-    private let eventCellsEventCellView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let country: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.headline3
-        label.textColor = UIColor.onSurfaceOnSurfaceLv1
-        return label
-    }()
-    
-    private let leagueName: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.headline3
-        label.textColor = UIColor.onSurfaceOnSurfaceLv2
-        return label
-    }()
-    
-    private let leagueImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "leagueOne")
-        return imageView
-    }()
-    
-    private let rightPointer: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "rightPointer")
-        return imageView
-    }()
-        
+    private let leagueCellView = UIView()
+    private let leagueCountryLabel = UILabel()
+    private let leagueNameLabel = UILabel()
+    private let leagueImageView = UIImageView()
+    private let leagueRightPointerImageView = UIImageView()
 
     override func addViews() {
-        super.addViews()
-        addSubview(eventCellsEventCellView)
-        eventCellsEventCellView.addSubview(country)
-        eventCellsEventCellView.addSubview(leagueName)
-        eventCellsEventCellView.addSubview(leagueImage)
-        eventCellsEventCellView.addSubview(rightPointer)
+        
+        addSubview(leagueCellView)
+        leagueCellView.addSubview(leagueCountryLabel)
+        leagueCellView.addSubview(leagueNameLabel)
+        leagueCellView.addSubview(leagueImageView)
+        leagueCellView.addSubview(leagueRightPointerImageView)
+        
+    }
+    
+    override func styleViews() {
+                
+        leagueCellView.backgroundColor = .white
+        
+        leagueCountryLabel.font = .headline3
+        leagueCountryLabel.textColor = .onSurfaceOnSurfaceLv1
+        
+        leagueNameLabel.font = .headline3
+        leagueNameLabel.textColor = .onSurfaceOnSurfaceLv2
+        
+        leagueImageView.contentMode = .scaleAspectFit
+        leagueImageView.image = UIImage(named: "leagueOne")
+        
+        leagueRightPointerImageView.contentMode = .scaleAspectFit
+        leagueRightPointerImageView.image = UIImage(named: "rightPointer")
+        
     }
     
     override func setupConstraints() {
-        super.setupConstraints()
+                
+        leagueCellView.snp.makeConstraints {
+            
+            $0.top.equalToSuperview().offset(100)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(56.0)
+            
+        }
         
-        NSLayoutConstraint.activate([
-            eventCellsEventCellView.topAnchor.constraint(equalTo: topAnchor, constant: 100),
-            eventCellsEventCellView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            eventCellsEventCellView.trailingAnchor.constraint(equalTo: leadingAnchor, constant: 360),
-            eventCellsEventCellView.heightAnchor.constraint(equalToConstant: 56.0),
-        ])
+        leagueImageView.snp.makeConstraints {
+            
+            $0.leading.equalTo(leagueCellView.snp.leading).offset(16)
+            $0.top.equalTo(leagueCellView.snp.top).offset(12)
+            $0.width.height.equalTo(32.0)
+            
+        }
+                
+        leagueCountryLabel.snp.makeConstraints {
+            
+            $0.leading.equalTo(leagueCellView.snp.leading).offset(80)
+            $0.top.equalTo(leagueCellView.snp.top).offset(20)
+            $0.width.equalTo(50)
+            $0.height.equalTo(16.0)
+            
+        }
         
-       
-        NSLayoutConstraint.activate([
-            country.leadingAnchor.constraint(equalTo: eventCellsEventCellView.leadingAnchor, constant: 80),
-            country.topAnchor.constraint(equalTo: eventCellsEventCellView.topAnchor, constant: 20),
-            country.widthAnchor.constraint(equalToConstant: 50),
-            country.heightAnchor.constraint(equalToConstant: 16.0),
-        ])
-        
-        NSLayoutConstraint.activate([
-            leagueImage.leadingAnchor.constraint(equalTo: eventCellsEventCellView.leadingAnchor, constant: 16),
-            leagueImage.topAnchor.constraint(equalTo: eventCellsEventCellView.topAnchor, constant: 12),
-            leagueImage.widthAnchor.constraint(equalToConstant: 32.0),
-            leagueImage.heightAnchor.constraint(equalToConstant: 32.0),
-        ])
-        
-        NSLayoutConstraint.activate([
-            leagueName.leadingAnchor.constraint(equalTo: eventCellsEventCellView.leadingAnchor, constant: 140),
-            leagueName.topAnchor.constraint(equalTo: eventCellsEventCellView.topAnchor, constant: 20),
-            leagueName.widthAnchor.constraint(equalToConstant: 91.0),
-            leagueName.heightAnchor.constraint(equalToConstant: 16.0),
-        ])
-        
-        NSLayoutConstraint.activate([
-            rightPointer.leadingAnchor.constraint(equalTo: eventCellsEventCellView.leadingAnchor, constant: 116),
-            rightPointer.topAnchor.constraint(equalTo: eventCellsEventCellView.topAnchor, constant: 16),
-            rightPointer.widthAnchor.constraint(equalToConstant: 24.0),
-            rightPointer.heightAnchor.constraint(equalToConstant: 24.0),
-        ])
+        leagueNameLabel.snp.makeConstraints {
+            
+            $0.leading.equalTo(leagueCellView.snp.leading).offset(140)
+            $0.top.equalTo(leagueCellView.snp.top).offset(20)
+            $0.width.equalTo(91.0)
+            $0.height.equalTo(16.0)
+            
+        }
+                
+        leagueRightPointerImageView.snp.makeConstraints {
+            
+            $0.leading.equalTo(leagueCellView.snp.leading).offset(116)
+            $0.top.equalTo(leagueCellView.snp.top).offset(16)
+            $0.width.height.equalTo(24.0)
+            
+        }
     }
 
-    func configure(with league: League ) {
-        country.text = league.country
-        leagueName.text = league.leagueName
+    func configure(with league: League) {
+        leagueCountryLabel.text = league.country
+        leagueNameLabel.text = league.leagueName
     }
-
-
-
 }
+
 
