@@ -8,22 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		8D8A5BF72B9E425100940D55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8A5BF62B9E425100940D55 /* AppDelegate.swift */; };
-		8D8A5BF92B9E425100940D55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8A5BF82B9E425100940D55 /* SceneDelegate.swift */; };
 		8D8A5BFB2B9E425100940D55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8A5BFA2B9E425100940D55 /* ViewController.swift */; };
-		8D8A5BFE2B9E425100940D55 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8D8A5BFD2B9E425100940D55 /* Base */; };
 		8D8A5C002B9E425200940D55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8A5BFF2B9E425200940D55 /* Assets.xcassets */; };
-		8D8A5C032B9E425200940D55 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8D8A5C022B9E425200940D55 /* Base */; };
+		8D8E85582BA611B400D3475D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E85572BA611B400D3475D /* Event.swift */; };
+		8D8E855B2BA663F300D3475D /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E855A2BA663F300D3475D /* MatchView.swift */; };
+		8D8E855E2BA6680800D3475D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8D8E855D2BA6680800D3475D /* SnapKit */; };
+		8D8E85602BA6680800D3475D /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8D8E855F2BA6680800D3475D /* SnapKit-Dynamic */; };
+		8D8E85642BA668CC00D3475D /* SofaAcademic in Frameworks */ = {isa = PBXBuildFile; productRef = 8D8E85632BA668CC00D3475D /* SofaAcademic */; };
+		8D8E85662BA684AB00D3475D /* LeagueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E85652BA684AB00D3475D /* LeagueView.swift */; };
+		8D8E85692BA7AE9800D3475D /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E85682BA7AE9800D3475D /* Fonts.swift */; };
+		8D8E856B2BA7B06100D3475D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E856A2BA7B06100D3475D /* Colors.swift */; };
+		8D8E85702BADB7CA00D3475D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E856F2BADB7CA00D3475D /* Constants.swift */; };
+		8D8E85732BADC55D00D3475D /* ValuePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E85722BADC55D00D3475D /* ValuePair.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8D8A5BF32B9E425100940D55 /* SofaScoreAcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SofaScoreAcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8A5BF62B9E425100940D55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8D8A5BF82B9E425100940D55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8D8A5BFA2B9E425100940D55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8D8A5BFD2B9E425100940D55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D8A5BFF2B9E425200940D55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8D8A5C022B9E425200940D55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D8A5C042B9E425200940D55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D8E85572BA611B400D3475D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		8D8E855A2BA663F300D3475D /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
+		8D8E85652BA684AB00D3475D /* LeagueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueView.swift; sourceTree = "<group>"; };
+		8D8E85682BA7AE9800D3475D /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		8D8E856A2BA7B06100D3475D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		8D8E856F2BADB7CA00D3475D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8D8E85722BADC55D00D3475D /* ValuePair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePair.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D8E855E2BA6680800D3475D /* SnapKit in Frameworks */,
+				8D8E85642BA668CC00D3475D /* SofaAcademic in Frameworks */,
+				8D8E85602BA6680800D3475D /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +70,51 @@
 		8D8A5BF52B9E425100940D55 /* SofaScoreAcademy */ = {
 			isa = PBXGroup;
 			children = (
+				8D8E85712BADC52500D3475D /* Utilities */,
+				8D8E85672BA7AE8700D3475D /* Abstractions */,
+				8D8E85592BA663DB00D3475D /* Views */,
+				8D8E85562BA6119900D3475D /* Models */,
 				8D8A5BF62B9E425100940D55 /* AppDelegate.swift */,
-				8D8A5BF82B9E425100940D55 /* SceneDelegate.swift */,
 				8D8A5BFA2B9E425100940D55 /* ViewController.swift */,
-				8D8A5BFC2B9E425100940D55 /* Main.storyboard */,
 				8D8A5BFF2B9E425200940D55 /* Assets.xcassets */,
-				8D8A5C012B9E425200940D55 /* LaunchScreen.storyboard */,
 				8D8A5C042B9E425200940D55 /* Info.plist */,
 			);
 			path = SofaScoreAcademy;
+			sourceTree = "<group>";
+		};
+		8D8E85562BA6119900D3475D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8D8E85572BA611B400D3475D /* Event.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8D8E85592BA663DB00D3475D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8D8E855A2BA663F300D3475D /* MatchView.swift */,
+				8D8E85652BA684AB00D3475D /* LeagueView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8D8E85672BA7AE8700D3475D /* Abstractions */ = {
+			isa = PBXGroup;
+			children = (
+				8D8E85682BA7AE9800D3475D /* Fonts.swift */,
+				8D8E856A2BA7B06100D3475D /* Colors.swift */,
+				8D8E856F2BADB7CA00D3475D /* Constants.swift */,
+			);
+			path = Abstractions;
+			sourceTree = "<group>";
+		};
+		8D8E85712BADC52500D3475D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8D8E85722BADC55D00D3475D /* ValuePair.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +133,11 @@
 			dependencies = (
 			);
 			name = SofaScoreAcademy;
+			packageProductDependencies = (
+				8D8E855D2BA6680800D3475D /* SnapKit */,
+				8D8E855F2BA6680800D3475D /* SnapKit-Dynamic */,
+				8D8E85632BA668CC00D3475D /* SofaAcademic */,
+			);
 			productName = SofaScoreAcademy;
 			productReference = 8D8A5BF32B9E425100940D55 /* SofaScoreAcademy.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +166,10 @@
 				Base,
 			);
 			mainGroup = 8D8A5BEA2B9E425100940D55;
+			packageReferences = (
+				8D8E855C2BA6680800D3475D /* XCRemoteSwiftPackageReference "SnapKit" */,
+				8D8E85622BA668CC00D3475D /* XCRemoteSwiftPackageReference "academy" */,
+			);
 			productRefGroup = 8D8A5BF42B9E425100940D55 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,8 +185,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D8A5C002B9E425200940D55 /* Assets.xcassets in Resources */,
-				8D8A5C032B9E425200940D55 /* Base in Resources */,
-				8D8A5BFE2B9E425100940D55 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,32 +195,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D8E85582BA611B400D3475D /* Event.swift in Sources */,
 				8D8A5BFB2B9E425100940D55 /* ViewController.swift in Sources */,
+				8D8E85732BADC55D00D3475D /* ValuePair.swift in Sources */,
+				8D8E855B2BA663F300D3475D /* MatchView.swift in Sources */,
+				8D8E856B2BA7B06100D3475D /* Colors.swift in Sources */,
+				8D8E85662BA684AB00D3475D /* LeagueView.swift in Sources */,
+				8D8E85692BA7AE9800D3475D /* Fonts.swift in Sources */,
 				8D8A5BF72B9E425100940D55 /* AppDelegate.swift in Sources */,
-				8D8A5BF92B9E425100940D55 /* SceneDelegate.swift in Sources */,
+				8D8E85702BADB7CA00D3475D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		8D8A5BFC2B9E425100940D55 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8D8A5BFD2B9E425100940D55 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8D8A5C012B9E425200940D55 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8D8A5C022B9E425200940D55 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8D8A5C052B9E425200940D55 /* Debug */ = {
@@ -296,7 +340,6 @@
 				INFOPLIST_FILE = SofaScoreAcademy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -323,7 +366,6 @@
 				INFOPLIST_FILE = SofaScoreAcademy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -361,6 +403,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8D8E855C2BA6680800D3475D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		8D8E85622BA668CC00D3475D /* XCRemoteSwiftPackageReference "academy" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sofascore/academy";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8D8E855D2BA6680800D3475D /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D8E855C2BA6680800D3475D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		8D8E855F2BA6680800D3475D /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D8E855C2BA6680800D3475D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+		8D8E85632BA668CC00D3475D /* SofaAcademic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D8E85622BA668CC00D3475D /* XCRemoteSwiftPackageReference "academy" */;
+			productName = SofaAcademic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8D8A5BEB2B9E425100940D55 /* Project object */;
 }
