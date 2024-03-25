@@ -1,48 +1,45 @@
 //
-//  MatchView.swift
+//  MatchViewCell.swift
 //  SofaScoreAcademy
 //
-//  Created by Dominik Prce on 17.03.2024..
+//  Created by Dominik Prce on 25.03.2024..
 //
 
 import UIKit
 import SnapKit
-import SofaAcademic
 
-final class MatchView: BaseView {
+class MatchViewCell: UITableViewCell {
     
     enum WinnerCode {
         case home
         case away
     }
     
-    private let matchCellView = UIView()
     private let teamOneNameLabel = UILabel()
     private let teamTwoNameLabel = UILabel()
     private let teamOneScoreLabel = UILabel()
     private let teamTwoScoreLabel = UILabel()
-    private let teamOneImageView = UIImageView()
-    private let teamTwoImageView = UIImageView()
+    private let teamOneImageView = UIImageView(image: UIImage(named: "teamOne"))
+    private let teamTwoImageView = UIImageView(image: UIImage(named: "teamTwo"))
     private let matchTimeLabel = UILabel()
     private let matchStatusLabel = UILabel()
-    private let matchCellverticalDivider = UIView()
+    private let matchCellView = UIView()
+    private let matchCellVerticalDivider = UIView()
 
-    override func addViews() {
-        
-        addSubview(matchCellView)
-        matchCellView.addSubview(teamOneNameLabel)
-        matchCellView.addSubview(teamTwoNameLabel)
-        matchCellView.addSubview(teamOneScoreLabel)
-        matchCellView.addSubview(teamTwoScoreLabel)
-        matchCellView.addSubview(teamOneImageView)
-        matchCellView.addSubview(teamTwoImageView)
-        matchCellView.addSubview(matchTimeLabel)
-        matchCellView.addSubview(matchStatusLabel)
-        matchCellView.addSubview(matchCellverticalDivider)
-        
+
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addViews()
+        setupConstraints()
+        styleViews()
     }
     
-    override func styleViews() {
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func styleViews() {
                 
         matchCellView.backgroundColor = .white
         
@@ -65,20 +62,28 @@ final class MatchView: BaseView {
         matchStatusLabel.font = .micro
         matchStatusLabel.textAlignment = .center
         
-        matchCellverticalDivider.backgroundColor = .onSurfaceOnSurfaceLv2
-        
+        matchCellVerticalDivider.backgroundColor = .onSurfaceOnSurfaceLv2
+
+                
+    }
+
+    
+    private func addViews() {
+        addSubview(matchCellView)
+        [teamOneNameLabel, teamTwoNameLabel, teamOneScoreLabel, teamTwoScoreLabel, teamOneImageView, teamTwoImageView, matchTimeLabel, matchStatusLabel, matchCellVerticalDivider].forEach {
+            matchCellView.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
     }
     
-    override func setupConstraints() {
-                
+    func setupConstraints() {
+        
         matchCellView.snp.makeConstraints {
             
-            $0.top.equalToSuperview().offset(100)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(56.0)
-            
+            $0.top.bottom.leading.equalToSuperview()
         }
         
+    
         teamOneNameLabel.snp.makeConstraints {
             
             $0.leading.equalTo(matchCellView.snp.leading).offset(104)
@@ -97,7 +102,7 @@ final class MatchView: BaseView {
         
         teamOneScoreLabel.snp.makeConstraints {
             
-            $0.leading.equalTo(matchCellView.snp.leading).offset(320)
+            $0.leading.equalTo(matchCellView.snp.leading).offset(360)
             $0.top.equalTo(matchCellView.snp.top).offset(10)
             $0.width.equalTo(32.0)
             $0.height.equalTo(16.0)
@@ -140,14 +145,14 @@ final class MatchView: BaseView {
         
         matchStatusLabel.snp.makeConstraints {
             
-            $0.leading.equalTo(matchTimeLabel)
+            $0.leading.equalTo(matchCellView.snp.leading).offset(4)
             $0.top.equalTo(teamOneScoreLabel.snp.bottom).offset(4)
             $0.width.equalTo(56.0)
             $0.height.equalTo(16.0)
             
         }
         
-        matchCellverticalDivider.snp.makeConstraints {
+        matchCellVerticalDivider.snp.makeConstraints {
             
             $0.leading.equalTo(matchCellView.snp.leading).offset(63)
             $0.top.equalTo(matchCellView.snp.top).offset(8)
@@ -155,6 +160,8 @@ final class MatchView: BaseView {
             $0.height.equalTo(40.0)
             
         }
+
+
     }
     
     func configure(with event: Event) {
@@ -182,7 +189,7 @@ final class MatchView: BaseView {
             return nil
         }()
 
-        let colors = MatchView.getTeamNameColors(for: status, winnerCode: winnerCode)
+        let colors = MatchViewCell.getTeamNameColors(for: status, winnerCode: winnerCode)
         
         matchStatusLabel.text = status == .notStarted ? "-" : (status == .inProgress ? "\(time ?? 0)'" : "FT")
         matchStatusLabel.textColor = status == .inProgress ? .specificLive : .onSurfaceOnSurfaceLv2
@@ -213,11 +220,4 @@ final class MatchView: BaseView {
         }
         return ValuePair(left: leftColor, right: rightColor)
     }
-
 }
-
-
-
-
-    
-
