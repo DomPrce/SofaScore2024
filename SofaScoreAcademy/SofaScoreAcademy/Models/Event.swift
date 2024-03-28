@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct League{
+struct League {
     
-    var country: String
-    var leagueName: String
+    let country: String
+    let leagueName: String
     
 }
 
@@ -23,8 +23,6 @@ struct Event{
     var startTime: Date?
     var matchTime: Int?
     var matchStatus: MatchStatus
-    
-    
     var formattedStartTime: String {
         guard let startTime = self.startTime else { return "TBD" }
         let formatter = DateFormatter()
@@ -34,25 +32,20 @@ struct Event{
     
 }
 
-enum MatchStatus{
+enum MatchStatus {
     
     case notStarted
     case inProgress
     case isFinished
-    
     var description: String {
-        
         switch self {
-            
         case .notStarted:
             "Not Started"
-            
         case .inProgress:
             "In Progress"
-            
         case .isFinished: "Finished"
-            
         }
     }
+    
 }
 
